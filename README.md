@@ -1,153 +1,95 @@
 # PBO_Posttest1
 
+
+## Deskripsi Program
+Program ini adalah aplikasi sederhana berbasis Java yang berfungsi untuk mengelola inventaris bahan dapur. User dapat melakukan operasi CRUD (Create, Read, Update, Delete). Program menyimpan data setiap bahan berupa:
+* Nama bahan
+* Jumlah stok
+* Satuan (kg/liter/pcs)
+* Tanggal kadaluarsa (format dd-mm-yyyy)
+
+## Fitur Utama
+1. Tambah Bahan -> Menambahkan data baru ke inventaris.
+2. Lihat Inventaris -> Menampilkan semua bahan dalam bentuk tabel.
+3. Update Bahan -> Mengubah data bahan tertentu berdasarkan nomor urut.
+4. Hapus Bahan -> Menghapus bahan dari daftar inventaris.
+5. Keluar -> Mengakhiri program.
+
+
 ## 1. **Program Dimulai**
 
-* Program dijalankan → otomatis masuk ke method `main`.
-* `Scanner input` dibuat untuk membaca input dari keyboard.
-* `ArrayList<String[]> inventaris` dibuat untuk menyimpan data bahan.
-* **Data awal** langsung dimasukkan ke inventaris (beras, minyak, telur, gula, tepung).
-
-```java
-ArrayList<String[]> inventaris = new ArrayList<>();
-inventaris.add(new String[]{"Beras", "10", "kg", "2025-12-01"});
+* Program dijalankan -> otomatis masuk ke method main.
+* Scanner input dibuat untuk membaca input dari keyboard.
+* ArrayList<String[]> inventaris dibuat untuk menyimpan data bahan.
+* Data awal langsung dimasukkan ke inventaris (beras, minyak, telur, gula, tepung).
 
 ## 2. **Tampilkan Menu Utama**
 
-Program menampilkan menu:
+Menu utama:
 
 <img width="344" height="218" alt="Screenshot 2025-09-09 184439" src="https://github.com/user-attachments/assets/b74f2470-e4d0-4944-939a-214fac999348" />
 
+User diminta memilih angka 1–5.
 
+## 3. **Alur Program**
 
-* User diminta memilih angka **1–5**.
-* Input disimpan di variabel `pilihan`.
+### Menu 1 -> Tambah Bahan (CREATE)
 
-```java
-pilihan = input.nextInt();
-input.nextLine(); // untuk buang enter
-```
-
----
-
-## 3. **Proses Pemilihan Menu (Switch Case)**
-
-### 🔹 Menu 1 → Tambah Bahan (CREATE)
-
-* User diminta mengisi:
-
+* User mengisi:
   * Nama bahan
   * Jumlah stok
   * Satuan
   * Tanggal kadaluarsa
-* Data dimasukkan ke inventaris dengan `inventaris.add(bahan);`.
 
-Output:
 
-```
---- Tambah Bahan Baru ---
-Nama Bahan          : Garam
-Jumlah Stok         : 3
-Satuan (kg/liter/pcs): kg
-Tanggal Kadaluarsa  : 2025-12-30
-Bahan berhasil ditambahkan!
-```
+<img width="349" height="139" alt="image" src="https://github.com/user-attachments/assets/bf5e4245-594e-4f23-9cf7-23bfaee4324b" />
 
----
 
-### 🔹 Menu 2 → Lihat Inventaris (READ)
+* Output setelah user menambahkan bahan dapur
 
-* Program mengecek apakah inventaris kosong:
 
-  * Jika kosong → tampil "Inventaris masih kosong."
-  * Jika ada → data ditampilkan dalam bentuk tabel (`printf`).
+<img width="535" height="192" alt="image" src="https://github.com/user-attachments/assets/0cf12cf8-2883-44b3-9135-54abbfccef4e" />
+
+
+### Menu 2 -> Lihat Inventaris (READ)
+
+Pada saat user menginput 2 pada pilihan, maka output:
+
+
+<img width="531" height="163" alt="image" src="https://github.com/user-attachments/assets/b576ecde-a2a9-4a2b-bcd9-3c1eb3d21cf9" />
+
+
+Output menampilkan isi dari data inventaris dapur yang tersedia
+
+### Menu 3 -> Update Bahan (UPDATE)
+
+* User diminta untuk memilih nomor bahan yang ingin diubah.
+* Jika nomor valid maka user dapat mengisi data baru (nama, stok, satuan, kadaluarsa).
+
+Contoh update bahan:
+
+
+<img width="353" height="140" alt="image" src="https://github.com/user-attachments/assets/5cfffdac-6790-409a-9138-44e83e2071ce" />
+
+
+Apabila nomor bahan yang di input tidak valid maka output nya sebagai berikut
+
+
+<img width="422" height="90" alt="image" src="https://github.com/user-attachments/assets/87c3adb6-2f74-4419-99d4-765a137ea48b" />
+
+
+### Menu 4 → Hapus Bahan (DELETE)
+
+* User diminta memasukkan nomor bahan yang ingin dihapus.
 
 Contoh output:
 
-```
---- Daftar Inventaris ---
-No   Nama Bahan           Stok       Satuan   Kadaluarsa
--------------------------------------------------------
-1    Beras                10         kg       2025-12-01
-2    Minyak Goreng        5          liter    2025-10-15
-3    Telur                30         pcs      2025-09-20
-4    Gula Pasir           8          kg       2026-01-05
-5    Tepung Terigu        12         kg       2025-11-10
-```
 
----
+<img width="443" height="670" alt="image" src="https://github.com/user-attachments/assets/25609592-e6c4-41e1-9b1c-7c3e3d4e505e" />
 
-### 🔹 Menu 3 → Update Bahan (UPDATE)
 
-* User diminta memasukkan **nomor bahan** yang ingin diubah.
-* Jika nomor valid → user isi data baru (nama, stok, satuan, kadaluarsa).
-* Data lama diganti dengan `inventaris.set(index-1, newBahan);`.
+### Menu 5 → Keluar
 
-Contoh:
+* Output apabila menginput angka 5 yaitu keluar dari program:
 
-```
-Masukkan nomor bahan yang ingin diupdate: 2
-Nama Bahan baru          : Minyak Kelapa
-Jumlah Stok baru         : 7
-Satuan baru              : liter
-Tanggal Kadaluarsa baru  : 2025-11-20
-Bahan berhasil diperbarui!
-```
-
----
-
-### 🔹 Menu 4 → Hapus Bahan (DELETE)
-
-* User diminta memasukkan **nomor bahan** yang ingin dihapus.
-* Jika valid → data dihapus dengan `inventaris.remove(index-1);`.
-
-Contoh:
-
-```
-Masukkan nomor bahan yang ingin dihapus: 3
-Bahan berhasil dihapus!
-```
-
----
-
-### 🔹 Menu 5 → Keluar
-
-* Program menampilkan pesan:
-
-```
-Terima kasih! Program selesai.
-```
-
-* Perulangan berhenti → program berakhir.
-
----
-
-## 4. **Perulangan (do-while)**
-
-Selama user belum memilih menu **5 (Keluar)**, program akan:
-
-* Menampilkan menu lagi
-* Menunggu input user
-* Menjalankan perintah sesuai pilihan
-
-```java
-} while (pilihan != 5);
-```
-
----
-
-## 🔁 Ringkasan Alur
-
-1. Program mulai → buat inventaris → isi dengan 5 data awal.
-2. Tampilkan menu utama.
-3. User pilih menu:
-
-   * (1) Tambah → input data baru → simpan ke inventaris.
-   * (2) Lihat → tampilkan seluruh inventaris.
-   * (3) Update → pilih nomor bahan → ganti data lama dengan baru.
-   * (4) Hapus → pilih nomor bahan → hapus dari inventaris.
-   * (5) Keluar → akhiri program.
-4. Ulangi sampai user pilih keluar.
-
----
-
-Mau saya buatkan **diagram alur (flowchart)** untuk lebih memudahkan mahasiswa semester 3 memahami alur program ini?
+  <img width="687" height="374" alt="image" src="https://github.com/user-attachments/assets/4cb3c041-670d-4747-a17d-1714016cede3" />
