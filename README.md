@@ -23,7 +23,7 @@ Program ini adalah aplikasi sederhana berbasis Java yang berfungsi untuk mengelo
 * ArrayList<String[]> inventaris dibuat untuk menyimpan data bahan.
 * Data awal langsung dimasukkan ke inventaris (beras, minyak, telur, gula, tepung).
 
-## 2. **Tampilkan Menu Utama**
+## 2. **Tampilan Menu Utama**
 
 Menu utama:
 
